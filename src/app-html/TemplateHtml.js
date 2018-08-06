@@ -3,7 +3,8 @@ import React, { Component } from "react";
 export default class TemplateHtml extends Component {
   render() {
     const {
-      assets: { javascript }
+      assets: { javascript },
+      muiCss
     } = this.props;
     return (
       <html>
@@ -14,6 +15,10 @@ export default class TemplateHtml extends Component {
           <div
             id="app"
             dangerouslySetInnerHTML={{ __html: this.props.entry }}
+          />
+          <style
+            id="jss-server-side"
+            dangerouslySetInnerHTML={{ __html: muiCss }}
           />
         </body>
         <script src={javascript.main} />
