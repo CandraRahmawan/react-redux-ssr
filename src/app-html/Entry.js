@@ -1,17 +1,13 @@
-import React, { Component } from "react";
-import { Button } from "@material-ui/core";
+import React, { Component, Fragment } from "react";
+import BaseLayout from "../clients/components/BaseLayout";
+import "../styles/style.scss";
 
 export default class Entry extends Component {
   render() {
     return (
-      <div suppressHydrationWarning={true}>
-        <Button variant="outlined" color="primary">
-          Click here
-        </Button>
-        <br />
-        <br />
-        Hello World from Component...
-      </div>
+      <Fragment>
+        <BaseLayout />
+      </Fragment>
     );
   }
 }

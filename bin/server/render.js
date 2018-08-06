@@ -11,7 +11,6 @@ export default (req, res) => {
   webpackIsomorphicTools.refresh();
 
   const sheetsRegistry = new SheetsRegistry();
-  const muiCss = sheetsRegistry.toString();
 
   const entry = renderToString(
     <JssProvider
@@ -21,6 +20,8 @@ export default (req, res) => {
       {muiThemeProvider(<Entry />)}
     </JssProvider>
   );
+
+  const muiCss = sheetsRegistry.toString();
 
   const templateHtml = renderToString(
     <TemplateHtml

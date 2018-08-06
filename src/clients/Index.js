@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Entry from "../app-html/Entry";
-import { hydrate } from "react-dom";
+import { render } from "react-dom";
 import { hot } from "react-hot-loader";
 import { muiThemeProvider } from "../styles/muiConfig";
 
@@ -18,4 +18,4 @@ class Index extends Component {
 }
 
 hot(module)(<Index />);
-hydrate(<Index />, document.getElementById("app"));
+render(<Index />, document.getElementById("app"));

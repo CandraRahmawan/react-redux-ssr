@@ -5,6 +5,7 @@ import { killProcess } from "port-kill";
 import WebpackIsomorphicTools from "webpack-isomorphic-tools";
 import isomorphicConfig from "../../webpack/isomorphic-tools-configuration";
 import mainServer from "../server/main";
+import {PORT} from "../../src/constanta/common";
 
 const baseProjectPath = path.resolve(__dirname, "..", "..");
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(
@@ -16,17 +17,17 @@ global.webpackIsomorphicTools = new WebpackIsomorphicTools(
 process.on("uncaughtException", error => {
   switch (error.code) {
     case EADDRINUSE: {
-      console.log(chalk.red(`Port ${port} already in used`));
+      console.log(chalk.red(`Port ${PORT} already in used`));
       console.log(chalk.blue("Port will kill automatically in 10 second"));
       setTimeout(() => {
         try {
-          killProcess(port);
+          killProcess(PORT);
           console.log(
-            chalk.green(`Success kill port ${port}, please restart server`)
+            chalk.green(`Success kill port ${PORT}, please restart server`)
           );
         } catch (err) {
           console.log(
-            chalk.red(`Failed kill port ${port}, Please use manual kill port`)
+            chalk.red(`Failed kill port ${PORT}, Please use manual kill port`)
           );
           console.log(chalk.red(`error detail : ${err}`));
         }

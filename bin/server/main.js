@@ -1,3 +1,4 @@
+import "ignore-styles";
 import express from "express";
 import chalk from "chalk";
 import render from "../server/render";
@@ -5,9 +6,9 @@ import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
 import webpackConfig from "../../webpack/development.config";
 import webpack from "webpack";
+import { PORT } from "../../src/constanta/common";
 
 const server = express();
-const port = 9000;
 const webpackCompiler = webpack(webpackConfig);
 
 server.use(
@@ -18,6 +19,6 @@ server.use(
 server.use(webpackHotMiddleware(webpackCompiler));
 server.get("/", render);
 
-server.listen(port, () =>
-  console.log(chalk.blue(`Server running at http://localhost:${port}`))
+server.listen(PORT, () =>
+  console.log(chalk.blue(`\nServer running at http://localhost:${PORT}`))
 );
