@@ -1,0 +1,37 @@
+{
+  "name": "React-Redux-SSR",
+  "version": "1.0.0",
+  "description": "React Redux with Server Side Rendering",
+  "main": "./bin/www",
+  "author": "Candra Rahmawan",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon --require babel-core/register --watch ./bin/www"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "chalk": "^2.4.1",
+    "nodemon": "^1.18.3",
+    "port-kill": "^0.0.1",
+    "prettier": "^1.14.0",
+    "progress-bar-webpack-plugin": "^1.11.0",
+    "react-hot-loader": "^4.3.4",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-hot-middleware": "^2.22.3",
+    "webpack-isomorphic-tools": "^3.0.6"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
