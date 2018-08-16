@@ -1,11 +1,11 @@
-import React from "react";
-import TemplateHtml from "../../src/app-html/TemplateHtml";
-import { renderToString } from "react-dom/server";
-import { SheetsRegistry } from "react-jss/lib/jss";
+import React from 'react';
+import TemplateHtml from '../../src/app-html/TemplateHtml';
+import {renderToString} from 'react-dom/server';
+import {SheetsRegistry} from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
-import { createGenerateClassName } from "@material-ui/core/styles";
-import Entry from "../../src/app-html/Entry";
-import { muiThemeProvider } from "../../src/styles/muiConfig";
+import {createGenerateClassName} from '@material-ui/core/styles';
+import Entry from '../../src/app-html/Entry';
+import {MuiThemeProviderWrapper} from '../../src/styles/muiConfig';
 
 export default (req, res) => {
   webpackIsomorphicTools.refresh();
@@ -15,10 +15,11 @@ export default (req, res) => {
   const entry = renderToString(
     <JssProvider
       registry={sheetsRegistry}
-      generateClassName={createGenerateClassName()}
-    >
-      {muiThemeProvider(<Entry />)}
-    </JssProvider>
+      generateClassName={createGenerateClassName()}>
+      <MuiThemeProviderWrapper>
+        <Entry />
+      </MuiThemeProviderWrapper>
+    </JssProvider>,
   );
 
   const muiCss = sheetsRegistry.toString();
@@ -28,7 +29,7 @@ export default (req, res) => {
       entry={entry}
       muiCss={muiCss}
       assets={webpackIsomorphicTools.assets()}
-    />
+    />,
   );
 
   res.send(templateHtml);

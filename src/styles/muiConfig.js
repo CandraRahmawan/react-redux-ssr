@@ -10,8 +10,8 @@ const theme = createMuiTheme({
   }
 });
 
-export const muiThemeProvider = appHtml => (
+export const MuiThemeProviderWrapper = props => (
   <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
-    {appHtml}
+    {props.children}
   </MuiThemeProvider>
 );
