@@ -6,6 +6,8 @@ import JssProvider from 'react-jss/lib/JssProvider';
 import {createGenerateClassName} from '@material-ui/core/styles';
 import Entry from '../../src/app-html/Entry';
 import {MuiThemeProviderWrapper} from '../../src/styles/muiConfig';
+import {StaticRouter} from 'react-router-dom';
+import Routes from '../../src/routes/Routes';
 
 export default (req, res) => {
   webpackIsomorphicTools.refresh();
@@ -17,7 +19,9 @@ export default (req, res) => {
       registry={sheetsRegistry}
       generateClassName={createGenerateClassName()}>
       <MuiThemeProviderWrapper>
-        <Entry />
+        <StaticRouter location={req.url} context={{}}>
+          <Routes />
+        </StaticRouter>
       </MuiThemeProviderWrapper>
     </JssProvider>,
   );

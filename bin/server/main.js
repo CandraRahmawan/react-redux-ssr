@@ -17,7 +17,7 @@ server.use(
   })
 );
 server.use(webpackHotMiddleware(webpackCompiler));
-server.get("/", render);
+server.get("*", render);
 
 server.listen(PORT, () =>
   console.log(chalk.blue(`\nServer running at http://localhost:${PORT}`))

@@ -13,6 +13,7 @@ export default class Entry extends Component {
           <Header />
           <Paper style={{display: 'flex'}}>
             <MenuSidebar />
+            <div style={{padding: '20px'}}>{this.props.children}</div>
           </Paper>
           <Footer />
         </Paper>

@@ -4,6 +4,7 @@ import {render} from 'react-dom';
 import {hot} from 'react-hot-loader';
 import {MuiThemeProviderWrapper} from '../styles/muiConfig';
 import {BrowserRouter} from 'react-router-dom';
+import Routes from '../routes/Routes';
 
 class Index extends Component {
   componentDidMount() {
@@ -15,11 +16,11 @@ class Index extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <MuiThemeProviderWrapper>
-          <Entry />
-        </MuiThemeProviderWrapper>
-      </BrowserRouter>
+      <MuiThemeProviderWrapper>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </MuiThemeProviderWrapper>
     );
   }
 }
