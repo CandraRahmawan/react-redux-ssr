@@ -1,0 +1,12 @@
+[
+  {
+    "key": "dashboard",
+    "path": "/",
+    "component": "Dashboard"
+  },
+  {
+    "key": "users",
+    "path": "/list-users",
+    "component": "Users"
+  }
+]

@@ -4,7 +4,7 @@ import {render} from 'react-dom';
 import {hot} from 'react-hot-loader';
 import {MuiThemeProviderWrapper} from '../styles/muiConfig';
 import {BrowserRouter} from 'react-router-dom';
-import Routes from '../routes/Routes';
+import Router from '../services/Router';
 
 class Index extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class Index extends Component {
     return (
       <MuiThemeProviderWrapper>
         <BrowserRouter>
-          <Routes />
+          <Router />
         </BrowserRouter>
       </MuiThemeProviderWrapper>
     );

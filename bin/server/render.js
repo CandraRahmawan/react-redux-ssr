@@ -4,10 +4,9 @@ import {renderToString} from 'react-dom/server';
 import {SheetsRegistry} from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
 import {createGenerateClassName} from '@material-ui/core/styles';
-import Entry from '../../src/app-html/Entry';
 import {MuiThemeProviderWrapper} from '../../src/styles/muiConfig';
 import {StaticRouter} from 'react-router-dom';
-import Routes from '../../src/routes/Routes';
+import Router from '../../src/services/Router';
 
 export default (req, res) => {
   webpackIsomorphicTools.refresh();
@@ -20,7 +19,7 @@ export default (req, res) => {
       generateClassName={createGenerateClassName()}>
       <MuiThemeProviderWrapper>
         <StaticRouter location={req.url} context={{}}>
-          <Routes />
+          <Router />
         </StaticRouter>
       </MuiThemeProviderWrapper>
     </JssProvider>,
