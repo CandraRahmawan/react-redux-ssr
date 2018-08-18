@@ -2,20 +2,32 @@ import '../styles/style.scss';
 import React, { Component, Fragment } from 'react';
 import Header from '../clients/components/base/Header';
 import { Paper } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import MenuSidebar from '../clients/components/base/MenuSidebar';
 import Footer from '../clients/components/base/Footer';
 import ErrorBoundary from '../clients/components/errors/ErrorBoundary';
 
-export default class Entry extends Component {
+const styles = {
+  root: {
+    display: 'flex',
+  },
+  content: {
+    padding: '20px',
+    width: '100%',
+  },
+};
+
+class AppWrapper extends Component {
   render() {
+    const { classes } = this.props;
     return (
       <Fragment>
         <ErrorBoundary>
           <Paper>
             <Header />
-            <Paper style={{ display: 'flex' }}>
+            <Paper className={classes.root}>
               <MenuSidebar />
-              <div style={{ padding: '20px' }}>{this.props.children}</div>
+              <div className={classes.content}>{this.props.children}</div>
             </Paper>
             <Footer />
           </Paper>
@@ -24,3 +36,5 @@ export default class Entry extends Component {
     );
   }
 }
+
+export default withStyles(styles)(AppWrapper);

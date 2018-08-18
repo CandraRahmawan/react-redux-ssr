@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Entry from '../app-html/Entry';
+import AppWrapper from '../app-html/AppWrapper';
 import {render} from 'react-dom';
 import {hot} from 'react-hot-loader';
 import {MuiThemeProviderWrapper} from '../styles/muiConfig';

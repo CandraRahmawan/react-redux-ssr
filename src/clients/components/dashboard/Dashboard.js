@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Entry from "../../../app-html/Entry";
+import AppWrapper from "../../../app-html/AppWrapper";
 
 export default class Dashboard extends Component {
   render() {
-    return <Entry>Dashboard Page ...</Entry>;
+    return <AppWrapper>Dashboard Page ...</AppWrapper>;
   }
 }

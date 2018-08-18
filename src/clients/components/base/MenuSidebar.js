@@ -9,11 +9,21 @@ import {
 import { NavLink } from 'react-router-dom';
 import { routePathname } from '../../../helpers/commonHelper';
 import { DASHBOARD, USERS } from '../../../constanta/common';
+import { withStyles } from '@material-ui/core/styles';
 
-export default class MenuSidebar extends Component {
+const styles = {
+  root: {
+    'min-height': 'calc(100vh - 128px)',
+    'box-shadow': 'none',
+    'border-radius': '0',
+    'background-color': '#3498db',
+  },
+};
+
+class MenuSidebar extends Component {
   render() {
     return (
-      <Paper>
+      <Paper className={this.props.classes.root}>
         <MenuList>
           <NavLink to={routePathname(DASHBOARD)}>
             <MenuItem>
@@ -32,3 +42,5 @@ export default class MenuSidebar extends Component {
     );
   }
 }
+
+export default withStyles(styles)(MenuSidebar);

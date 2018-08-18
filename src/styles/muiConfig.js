@@ -7,6 +7,11 @@ const theme = createMuiTheme({
     primary: green,
     accent: red,
     type: "light"
+  },
+  typography: {
+    title: {
+      color: "#FAFAFA"
+    }
   }
 });
 
