@@ -8,16 +8,34 @@ import {
   TableCell,
   Icon,
   Paper,
+  Button,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import { routePathname } from '../../../helpers/commonHelper';
+import { ADD_USER } from '../../../constanta/common';
+import { NavLink } from 'react-router-dom';
 
-const styles = {};
+const styles = {
+  button: {
+    marginBottom: '15px',
+  },
+};
 
-class Users extends Component {
+class ListUsers extends Component {
   render() {
     const { classes } = this.props;
     return (
       <AppWrapper>
+        <NavLink to={routePathname(ADD_USER)}>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            size="large"
+          >
+            Add User
+          </Button>
+        </NavLink>
         <Paper>
           <Table>
             <TableHead>
@@ -35,11 +53,11 @@ class Users extends Component {
                 <TableCell>085642203535</TableCell>
                 <TableCell>
                   <a href="#">
-                    <Icon color="primary">edit</Icon>
+                    <Icon color="secondary">edit</Icon>
                   </a>
                   {' | '}
                   <a href="#">
-                    <Icon color="primary">delete</Icon>
+                    <Icon color="secondary">delete</Icon>
                   </a>
                 </TableCell>
               </TableRow>
@@ -51,4 +69,4 @@ class Users extends Component {
   }
 }
 
-export default withStyles(styles)(Users);
+export default withStyles(styles)(ListUsers);

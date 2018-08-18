@@ -5,8 +5,13 @@
     "component": "Dashboard"
   },
   {
-    "key": "users",
+    "key": "listUsers",
     "path": "/list-users",
-    "component": "Users"
+    "component": "ListUsers"
+  },
+  {
+    "key": "addUser",
+    "path": "/add-user",
+    "component": "AddUser"
   }
 ]

@@ -8,15 +8,17 @@ import {
 } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { routePathname } from '../../../helpers/commonHelper';
-import { DASHBOARD, USERS } from '../../../constanta/common';
+import { DASHBOARD, LIST_USERS } from '../../../constanta/common';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   root: {
-    'min-height': 'calc(100vh - 128px)',
-    'box-shadow': 'none',
-    'border-radius': '0',
-    'background-color': '#3498db',
+    minHeight: 'calc(100vh - 128px)',
+    boxShadow:
+      '0px 0px 5px 0px rgba(0, 0, 0, 0.2), 0px 0px 2px 0px rgba(0, 0, 0, 0.14), 0px 0px 1px -2px rgba(0, 0, 0, 0.12)',
+    borderRadius: '0',
+    backgroundColor: '#ecf0f1',
+    minWidth: '220px',
   },
 };
 
@@ -27,13 +29,13 @@ class MenuSidebar extends Component {
         <MenuList>
           <NavLink to={routePathname(DASHBOARD)}>
             <MenuItem>
-              <Icon color="primary">dashboard</Icon>
+              <Icon color="secondary">dashboard</Icon>
               <ListItemText inset primary="Dashboard" />
             </MenuItem>
           </NavLink>
-          <NavLink to={routePathname(USERS)}>
+          <NavLink to={routePathname(LIST_USERS)}>
             <MenuItem>
-              <Icon color="primary">people</Icon>
+              <Icon color="secondary">people</Icon>
               <ListItemText inset primary="List Users" />
             </MenuItem>
           </NavLink>
