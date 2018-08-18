@@ -15,6 +15,7 @@ import { routePathname } from '../../../helpers/commonHelper';
 import { ADD_USER } from '../../../constanta/common';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 const styles = {
   button: {
@@ -45,26 +46,43 @@ class ListUsers extends Component {
             <TableHead>
               <TableRow>
                 <TableCell>Email</TableCell>
+                <TableCell>User Name</TableCell>
                 <TableCell>Full Name</TableCell>
                 <TableCell>Phone Number</TableCell>
                 <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell>candra.assasin@gmail.com</TableCell>
-                <TableCell>Candra Rahmawan</TableCell>
-                <TableCell>085642203535</TableCell>
-                <TableCell>
-                  <a href="#">
-                    <Icon color="secondary">edit</Icon>
-                  </a>
-                  {' | '}
-                  <a href="#">
-                    <Icon color="secondary">delete</Icon>
-                  </a>
-                </TableCell>
-              </TableRow>
+              {_.map(
+                JSON.parse(window.localStorage.getItem('list_users')),
+                (item, index) => {
+                  return (
+                    <TableRow>
+                      <TableCell key={`${item.email}-${index}`}>
+                        {item.email}
+                      </TableCell>
+                      <TableCell key={`${item.username}-${index}`}>
+                        {item.username}
+                      </TableCell>
+                      <TableCell key={`${item.fullname}-${index}`}>
+                        {item.fullname}
+                      </TableCell>
+                      <TableCell key={`${item.phonenumber}-${index}`}>
+                        {item.phonenumber}
+                      </TableCell>
+                      <TableCell>
+                        <a href="#">
+                          <Icon color="secondary">edit</Icon>
+                        </a>
+                        {' | '}
+                        <a href="#">
+                          <Icon color="secondary">delete</Icon>
+                        </a>
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
+              )}
             </TableBody>
           </Table>
         </Paper>
