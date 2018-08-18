@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
-import AppWrapper from '../app-html/AppWrapper';
-import {render} from 'react-dom';
-import {hot} from 'react-hot-loader';
-import {MuiThemeProviderWrapper} from '../styles/muiConfig';
-import {BrowserRouter} from 'react-router-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { hot } from 'react-hot-loader';
+import { MuiThemeProviderWrapper } from '../styles/muiConfig';
+import { BrowserRouter } from 'react-router-dom';
 import Router from '../services/Router';
 
 class Index extends Component {

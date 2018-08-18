@@ -5,7 +5,7 @@ import AddUser from '../clients/components/users/AddUser';
 const component = {
   Dashboard: Dashboard,
   ListUsers: ListUsers,
-  AddUser: AddUser,
+  AddUser: AddUser
 };
 
 export default component;

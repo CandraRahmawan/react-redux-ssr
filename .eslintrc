@@ -1,0 +1,9 @@
+{
+  "extends": ["standard", "standard-react"],
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": [2, "always"],
+    "space-before-function-paren": ["error", "never"],
+    "jsx-quotes": ["error", "prefer-double"]
+  }
+}

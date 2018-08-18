@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Card, CardContent } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 export default class ErrorBoundary extends Component {
+  static propTypes = {
+    children: PropTypes.element.isRequired
+  };
   state = {
-    hasError: false,
+    hasError: false
   };
 
-  componentDidCatch(error, info) {
+  componentDidCatch() {
     this.setState({ hasError: true });
   }
 
@@ -19,7 +23,7 @@ export default class ErrorBoundary extends Component {
               left: '50%',
               top: '30%',
               position: 'absolute',
-              transform: 'translate(-50%, -50%)',
+              transform: 'translate(-50%, -50%)'
             }}
           >
             <h1
@@ -27,7 +31,7 @@ export default class ErrorBoundary extends Component {
                 textAlign: 'center',
                 fontSize: '250px',
                 marginBottom: '0',
-                color: '#ecf0f1',
+                color: '#ecf0f1'
               }}
             >
               500

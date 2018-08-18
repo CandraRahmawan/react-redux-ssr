@@ -11,7 +11,7 @@ export default () => (
         throw new Error(
           `The Page Component ${
             item.component
-          } is not registered, please add in src/services/registerPageComponent.js`,
+          } is not registered, please add in src/services/registerPageComponent.js`
         );
       }
       return (

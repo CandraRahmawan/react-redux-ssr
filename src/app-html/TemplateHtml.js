@@ -1,8 +1,14 @@
-import React, { Component } from "react";
-import _ from "lodash";
-import { JS, STYLES } from "../constanta/common";
+import React, { Component } from 'react';
+import _ from 'lodash';
+import { JS, STYLES } from '../constanta/common';
+import PropTypes from 'prop-types';
 
 export default class TemplateHtml extends Component {
+  static propTypes = {
+    assets: PropTypes.array.isRequired,
+    entry: PropTypes.string.isRequired,
+    muiCss: PropTypes.string.isRequired
+  };
   renderAssets = type => {
     const { assets } = this.props;
     if (type === JS) {

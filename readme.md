@@ -13,6 +13,9 @@ Technology :
     Prettier
     Express
     Nodemon
+    Eslint
+    Material UI Design
+    Webpack Isomorphic Tools
 
 run yarn install first to install depedencies.
 

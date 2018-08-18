@@ -6,18 +6,23 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuSidebar from '../clients/components/base/MenuSidebar';
 import Footer from '../clients/components/base/Footer';
 import ErrorBoundary from '../clients/components/errors/ErrorBoundary';
+import PropTypes from 'prop-types';
 
 const styles = {
   root: {
-    display: 'flex',
+    display: 'flex'
   },
   content: {
     padding: '20px',
-    width: '100%',
-  },
+    width: '100%'
+  }
 };
 
 class AppWrapper extends Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+    children: PropTypes.any.isRequired
+  };
   render() {
     const { classes } = this.props;
     return (

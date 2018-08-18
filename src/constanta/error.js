@@ -1,1 +1,1 @@
-export const EADDRINUSE = "EADDRINUSE";
+export const EADDRINUSE = 'EADDRINUSE';

@@ -8,20 +8,24 @@ import {
   TableCell,
   Icon,
   Paper,
-  Button,
+  Button
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { routePathname } from '../../../helpers/commonHelper';
 import { ADD_USER } from '../../../constanta/common';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const styles = {
   button: {
-    marginBottom: '15px',
-  },
+    marginBottom: '15px'
+  }
 };
 
 class ListUsers extends Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired
+  };
   render() {
     const { classes } = this.props;
     return (
