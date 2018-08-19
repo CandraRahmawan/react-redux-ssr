@@ -13,5 +13,10 @@
     "key": "addUser",
     "path": "/add-user",
     "component": "AddUser"
+  },
+  {
+    "key": "editUser",
+    "path": "/edit-user/:id",
+    "component": "EditUser"
   }
 ]

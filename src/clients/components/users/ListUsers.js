@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { routePathname } from '../../../helpers/commonHelper';
-import { ADD_USER } from '../../../constanta/common';
+import { ADD_USER, EDIT_USER } from '../../../constanta/common';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
@@ -99,9 +99,9 @@ class ListUsers extends Component {
                 {item.phonenumber}
               </TableCell>
               <TableCell key={`actions-${index}`}>
-                <a href="#">
+                <NavLink to={`/edit-user/${index}`}>
                   <Icon color="secondary">edit</Icon>
-                </a>
+                </NavLink>
                 {' | '}
                 <a
                   href="#"
