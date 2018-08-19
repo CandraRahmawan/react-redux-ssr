@@ -7,9 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon --require babel-core/register --watch ./bin/www",
-    "prettier": "prettier --single-quote --write",
-    "eslint": "eslint . --ext .js"
+    "start": "nodemon --require babel-core/register --watch ./bin/www"
   },
   "husky": {
     "hooks": {
@@ -18,8 +16,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn eslint",
-      "yarn prettier",
+      "eslint . --ext .js",
+      "prettier --single-quote --write src/**/*.js webpack/*.js",
       "git add"
     ]
   },

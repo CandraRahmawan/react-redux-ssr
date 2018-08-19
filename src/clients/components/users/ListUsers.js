@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import AppWrapper from '../../../app-html/AppWrapper';
 import {
   Table,
@@ -14,10 +14,10 @@ import {
   DialogActions,
   DialogContentText
 } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import { routePathname } from '../../../helpers/commonHelper';
-import { ADD_USER, EDIT_USER } from '../../../constanta/common';
-import { NavLink } from 'react-router-dom';
+import {withStyles} from '@material-ui/core/styles';
+import {routePathname} from '../../../helpers/commonHelper';
+import {ADD_USER, EDIT_USER} from '../../../constanta/common';
+import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -38,10 +38,10 @@ class ListUsers extends Component {
     email: ''
   };
 
-  handleClose = () => this.setState({ openDialog: false });
+  handleClose = () => this.setState({openDialog: false});
 
   handleClickOpen = (indexUser, email) =>
-    this.setState({ openDialog: true, indexUser: indexUser, email: email });
+    this.setState({openDialog: true, indexUser: indexUser, email: email});
 
   handleDeleteUser = () => {
     let dataUser = JSON.parse(window.localStorage.getItem('list_users'));
@@ -50,7 +50,7 @@ class ListUsers extends Component {
       'list_users',
       JSON.stringify(_.compact(dataUser))
     );
-    this.setState({ openDialog: false });
+    this.setState({openDialog: false});
     setTimeout(
       () => window.alert(`Success Delete User: ${this.state.email}`),
       300
@@ -68,7 +68,7 @@ class ListUsers extends Component {
       <DialogContent id="alert-dialog-slide-description">
         <DialogContentText>{`Delete this user ${
           this.state.email
-        } ?`}</DialogContentText>
+          } ?`}</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={this.handleClose} color="primary">
@@ -123,7 +123,7 @@ class ListUsers extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
     return (
       <AppWrapper>
         <NavLink to={routePathname(ADD_USER)}>
