@@ -41,7 +41,10 @@ export default {
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css'
     }),
-    new MinifyPlugin()
+    new MinifyPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.BROWSER': JSON.stringify(true)
+    })
   ],
   mode: 'development',
   optimization: {

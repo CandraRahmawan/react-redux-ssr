@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export default class TemplateHtml extends Component {
   static propTypes = {
-    assets: PropTypes.array.isRequired,
+    assets: PropTypes.object.isRequired,
     entry: PropTypes.string.isRequired,
     muiCss: PropTypes.string.isRequired
   };

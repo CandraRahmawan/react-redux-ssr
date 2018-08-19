@@ -30,7 +30,7 @@ class AddUser extends Component {
   handleSubmit = event => {
     const existingData = JSON.parse(window.localStorage.getItem('list_users'));
     if (_.isEmpty(existingData)) {
-      window.localStorage.setItem('list_users', [JSON.stringify(this.state)]);
+      window.localStorage.setItem('list_users', JSON.stringify([this.state]));
     } else {
       window.localStorage.setItem(
         'list_users',
