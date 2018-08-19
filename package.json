@@ -8,7 +8,16 @@
   "private": false,
   "scripts": {
     "start": "nodemon --require babel-core/register --watch ./bin/www",
-    "eslint": "eslint . --ext .js"
+    "prettier": "prettier --single-quote --write",
+    "eslint": "eslint . --ext .js",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "yarn eslint",
+      "yarn prettier",
+      "git add"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -31,7 +40,9 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3",
     "ignore-styles": "^5.0.1",
+    "lint-staged": "^7.2.2",
     "mini-css-extract-plugin": "^0.4.1",
     "nodemon": "^1.18.3",
     "port-kill": "^0.0.1",
