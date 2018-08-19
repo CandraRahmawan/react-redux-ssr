@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AppWrapper from '../../../app-html/AppWrapper';
-import {FormControl, InputLabel, Input, Button} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
+import { FormControl, InputLabel, Input, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -24,12 +24,13 @@ class EditUser extends Component {
     phonenumber: ''
   };
 
-  handleOnChange = event => this.setState({[event.target.id]: event.target.value});
+  handleOnChange = event =>
+    this.setState({ [event.target.id]: event.target.value });
 
   handleSubmit = event => {
     const {
       match: {
-        params: {id}
+        params: { id }
       }
     } = this.props;
     let existingData = JSON.parse(window.localStorage.getItem('list_users'));
@@ -49,7 +50,7 @@ class EditUser extends Component {
   componentDidMount() {
     const {
       match: {
-        params: {id}
+        params: { id }
       }
     } = this.props;
     const getDataById = _.get(
@@ -68,7 +69,7 @@ class EditUser extends Component {
   }
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <AppWrapper>
         <form onSubmit={this.handleSubmit}>

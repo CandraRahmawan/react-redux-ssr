@@ -5,4 +5,3 @@ export const PORT = 9000;
 export const DASHBOARD = 'dashboard';
 export const LIST_USERS = 'listUsers';
 export const ADD_USER = 'addUser';
-export const EDIT_USER = 'editUser';

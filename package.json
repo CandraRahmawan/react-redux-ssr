@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon --require babel-core/register --watch ./bin/www"
+    "start": "nodemon --require babel-core/register --watch ./bin/www",
+    "eslint:fix": "eslint . --ext .js --fix"
   },
   "husky": {
     "hooks": {
