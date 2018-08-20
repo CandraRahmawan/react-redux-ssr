@@ -16,7 +16,7 @@ const distDirectory = path.resolve(__dirname, '..');
 
 export default {
   entry: {
-    app: ['./src/clients/Index.js', 'webpack-hot-middleware/client']
+    app: ['./src/clients/Entry.js', 'webpack-hot-middleware/client']
   },
   output: {
     filename: '[name].[hash].js',

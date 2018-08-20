@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default class TemplateHtml extends Component {
   static propTypes = {
     assets: PropTypes.object.isRequired,
-    entry: PropTypes.string.isRequired,
+    appHtml: PropTypes.string.isRequired,
     muiCss: PropTypes.string.isRequired
   };
   renderAssets = type => {
@@ -23,7 +23,7 @@ export default class TemplateHtml extends Component {
   };
 
   render() {
-    const { muiCss, entry } = this.props;
+    const { muiCss, appHtml } = this.props;
     return (
       <html>
         <head>
@@ -31,7 +31,7 @@ export default class TemplateHtml extends Component {
           {this.renderAssets(STYLES)}
         </head>
         <body>
-          <div id="app" dangerouslySetInnerHTML={{ __html: entry }} />
+          <div id="app" dangerouslySetInnerHTML={{ __html: appHtml }} />
           <style id="jss-server-side">{muiCss}</style>
         </body>
         {this.renderAssets(JS)}

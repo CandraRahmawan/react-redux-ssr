@@ -14,7 +14,7 @@ export default (req, res) => {
 
   const sheetsRegistry = new SheetsRegistry();
 
-  const entry = renderToString(
+  const appHtml = renderToString(
     <JssProvider
       registry={sheetsRegistry}
       generateClassName={createGenerateClassName()}
@@ -30,7 +30,7 @@ export default (req, res) => {
   const muiCss = sheetsRegistry.toString();
   const templateHtml = renderToString(
     <TemplateHtml
-      entry={entry}
+      appHtml={appHtml}
       muiCss={muiCss}
       assets={webpackIsomorphicTools.assets()}
     />

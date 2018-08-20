@@ -32,13 +32,21 @@ class MenuSidebar extends Component {
     return (
       <Paper className={this.props.classes.root}>
         <MenuList>
-          <NavLink to={routePathname(DASHBOARD)}>
+          <NavLink
+            exact
+            to={routePathname(DASHBOARD)}
+            activeClassName="selected"
+          >
             <MenuItem>
               <Icon color="secondary">dashboard</Icon>
               <ListItemText inset primary="Dashboard" />
             </MenuItem>
           </NavLink>
-          <NavLink to={routePathname(LIST_USERS)}>
+          <NavLink
+            exact
+            to={routePathname(LIST_USERS)}
+            activeClassName="selected"
+          >
             <MenuItem>
               <Icon color="secondary">people</Icon>
               <ListItemText inset primary="List Users" />

@@ -5,7 +5,7 @@ import { MuiThemeProviderWrapper } from '../styles/muiConfig';
 import { BrowserRouter } from 'react-router-dom';
 import Router from '../services/Router';
 
-class Index extends Component {
+class Entry extends Component {
   componentDidMount() {
     const jssStyles = document.getElementById('jss-server-side');
     if (jssStyles && jssStyles.parentNode) {
@@ -24,5 +24,5 @@ class Index extends Component {
   }
 }
 
-hot(module)(<Index />);
-render(<Index />, document.getElementById('app'));
+hot(module)(<Entry />);
+render(<Entry />, document.getElementById('app'));
