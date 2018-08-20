@@ -8,6 +8,8 @@ a {
   text-decoration: none;
 }
 
-.selected > li {
-  background-color: #1abc9c;
+.selected {
+  li {
+    background-color: #1abc9c;
+  }
 }
