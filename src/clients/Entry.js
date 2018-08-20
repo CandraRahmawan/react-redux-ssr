@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { hot } from 'react-hot-loader';
 import { MuiThemeProviderWrapper } from '../styles/muiConfig';
-import { BrowserRouter } from 'react-router-dom';
 import Router from '../services/Router';
+import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
+import { store, history } from '../redux/configureStore';
 
 class Entry extends Component {
   componentDidMount() {
@@ -15,11 +17,13 @@ class Entry extends Component {
 
   render() {
     return (
-      <MuiThemeProviderWrapper>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-      </MuiThemeProviderWrapper>
+      <Provider store={store}>
+        <MuiThemeProviderWrapper>
+          <ConnectedRouter history={history}>
+            <Router />
+          </ConnectedRouter>
+        </MuiThemeProviderWrapper>
+      </Provider>
     );
   }
 }

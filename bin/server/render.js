@@ -5,8 +5,10 @@ import { SheetsRegistry } from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
 import { createGenerateClassName } from '@material-ui/core/styles';
 import { MuiThemeProviderWrapper } from '../../src/styles/muiConfig';
-import { StaticRouter } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
 import Router from '../../src/services/Router';
+import { history, store } from '../../src/redux/configureStore';
 
 export default (req, res) => {
   /* eslint-disable no-undef */
@@ -15,16 +17,18 @@ export default (req, res) => {
   const sheetsRegistry = new SheetsRegistry();
 
   const appHtml = renderToString(
-    <JssProvider
-      registry={sheetsRegistry}
-      generateClassName={createGenerateClassName()}
-    >
-      <MuiThemeProviderWrapper>
-        <StaticRouter location={req.url} context={{}}>
-          <Router />
-        </StaticRouter>
-      </MuiThemeProviderWrapper>
-    </JssProvider>
+    <Provider store={store}>
+      <JssProvider
+        registry={sheetsRegistry}
+        generateClassName={createGenerateClassName()}
+      >
+        <MuiThemeProviderWrapper>
+          <ConnectedRouter history={history}>
+            <Router />
+          </ConnectedRouter>
+        </MuiThemeProviderWrapper>
+      </JssProvider>
+    </Provider>
   );
 
   const muiCss = sheetsRegistry.toString();

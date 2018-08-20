@@ -16,11 +16,15 @@ Technology :
     Eslint
     Material UI Design
     Webpack Isomorphic Tools
+    Connected React Router
+    Redux Thunk
+    React Redux
+    Redux
 
-run yarn install first to install depedencies.
+run `yarn install` first to install depedencies.
 
-Running : yarn start
+Running : `yarn start`
 
-running at http://localhost:9000/
+> running at http://localhost:9000/
 
 working still in progress...
