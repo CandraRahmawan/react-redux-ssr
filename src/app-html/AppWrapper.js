@@ -7,6 +7,8 @@ import MenuSidebar from '../clients/components/base/MenuSidebar';
 import Footer from '../clients/components/base/Footer';
 import ErrorBoundary from '../clients/components/errors/ErrorBoundary';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 const styles = {
   root: {
@@ -21,17 +23,20 @@ const styles = {
 class AppWrapper extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    children: PropTypes.any.isRequired
+    children: PropTypes.any.isRequired,
+    routePathname: PropTypes.string
   };
+
   render() {
-    const { classes } = this.props;
+    const { classes, routePathname } = this.props;
+    const isLoginPath = routePathname === '/login';
     return (
       <Fragment>
         <ErrorBoundary>
           <Paper>
             <Header />
             <Paper className={classes.root}>
-              <MenuSidebar />
+              {!isLoginPath && <MenuSidebar />}
               <div className={classes.content}>{this.props.children}</div>
             </Paper>
             <Footer />
@@ -42,4 +47,11 @@ class AppWrapper extends Component {
   }
 }
 
-export default withStyles(styles)(AppWrapper);
+const mapStateToProps = state => ({
+  routePathname: state.router.location.pathname
+});
+
+export default compose(
+  connect(mapStateToProps),
+  withStyles(styles)
+)(AppWrapper);
