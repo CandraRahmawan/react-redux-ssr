@@ -9,6 +9,7 @@ import ErrorBoundary from '../clients/components/errors/ErrorBoundary';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { loginUser } from '../redux/actions';
 
 const styles = {
   root: {
@@ -24,19 +25,28 @@ class AppWrapper extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     children: PropTypes.any.isRequired,
-    routePathname: PropTypes.string
+    routePathname: PropTypes.string.isRequired,
+    loginUser: PropTypes.func.isRequired
   };
 
+  componentDidMount() {
+    const loginUsers = window.localStorage.getItem('login_users');
+    if (loginUsers) {
+      this.props.loginUser({ isLogin: true, userEmail: loginUsers });
+    }
+  }
+
+  isLoginPath = () => this.props.routePathname === '/login';
+
   render() {
-    const { classes, routePathname } = this.props;
-    const isLoginPath = routePathname === '/login';
+    const { classes } = this.props;
     return (
       <Fragment>
         <ErrorBoundary>
           <Paper>
             <Header />
             <Paper className={classes.root}>
-              {!isLoginPath && <MenuSidebar />}
+              {!this.isLoginPath() && <MenuSidebar />}
               <div className={classes.content}>{this.props.children}</div>
             </Paper>
             <Footer />
@@ -51,7 +61,14 @@ const mapStateToProps = state => ({
   routePathname: state.router.location.pathname
 });
 
+const mapDispatchToProps = {
+  loginUser
+};
+
 export default compose(
-  connect(mapStateToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
   withStyles(styles)
 )(AppWrapper);
