@@ -28,5 +28,3 @@ Running : `yarn start`
 > running at http://localhost:9000/
 
 Instruction for debug `Redux` in browser http://extension.remotedev.io/
-
-working still in progress...
